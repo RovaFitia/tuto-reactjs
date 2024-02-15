@@ -1,14 +1,19 @@
-const title = "My title page"
-const style = {color:'red', backgroundColor: '#ededed'}
+import { useState } from "react";
+
 function App() {
-  const handleClick = () => {
-    alert('Hello guys') 
-  }
-  return <>
-    {/* Pour les style on doit le mettre sous forme d'objet */}
-    <h1 onClick={handleClick} id="title" className="title" style={style}>{title}</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo harum et distinctio, ad minus voluptate odio quasi aut blanditiis minima quam voluptatem dolore laborum exercitationem, excepturi facilis dolores. Est, at?</p>
-  </>
+  const [count, setCount] = useState(0)
+
+  const increment = () => {
+	setCount(count + 1)
+  };
+
+  return (
+    <>
+      <p>Conteur : {count}</p>
+      <button onClick={increment}>Increment</button>
+    </>
+  );
+
 }
 
-export default App
+export default App;
