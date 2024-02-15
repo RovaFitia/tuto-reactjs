@@ -13,6 +13,7 @@ function App() {
       <button onClick={increment}>Increment</button>
     </>
   );
+
 }
 
 export default App;
