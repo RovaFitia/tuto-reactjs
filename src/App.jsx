@@ -29,9 +29,16 @@ function App() {
         console.log(new FormData(e.target))
     }
 
+    const [checked, setChecked] = useState(true)
+
+    const handleChecked = () => {
+        setChecked(!checked)
+    } 
+
     return <form onSubmit={handleSubmit}>
-        <input type="text" name="firstname" />
-        <button>Envoyer</button>
+        <input type="text" name="firstname" defaultValue="John Doe" />
+        <input type="checkbox" value={checked} onChange={handleChecked} />
+        <button disabled={!checked}>Envoyer</button>
     </form>
 }
 
