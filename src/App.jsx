@@ -1,6 +1,26 @@
 import { useState } from "react";
 
 function App() {
+  const [isTermAccepted, setTermAccepter] = useState(false);
+  return (
+    <form>
+      <CGUcheckbox checked={isTermAccepted} onCheck={setTermAccepter} />
+      <button disabled={!isTermAccepted}>valider</button>
+    </form>
+  );
+}
+
+function CGUcheckbox({ checked, onCheck }) {
+    return <div>
+        <label>
+            <input
+            type="checkbox"
+            checked={checked}
+            onChange={(e) => onCheck(e.target.checked)}
+            />
+            {"Accepter les conditions d'utilisation"}
+        </label>
+    </div>
     //* EXEMPLE 2 : 
       // * First Method : formulaire controler
     // const [firstName, setFirstName] = useState('John Doe')
@@ -24,23 +44,23 @@ function App() {
 
       //* Second Method : formulaire non controler
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+//     const handleSubmit = (e) => {
+//         e.preventDefault()
 
-        console.log(new FormData(e.target))
-    }
+//         console.log(new FormData(e.target))
+//     }
 
-    const [checked, setChecked] = useState(true)
+//     const [checked, setChecked] = useState(true)
 
-    const handleChecked = () => {
-        setChecked(!checked)
-    } 
+//     const handleChecked = () => {
+//         setChecked(!checked)
+//     } 
 
-    return <form onSubmit={handleSubmit}>
-        <input type="text" name="firstname" defaultValue="John Doe" />
-        <input type="checkbox" value={checked} onChange={handleChecked} />
-        <button disabled={!checked}>Envoyer</button>
-    </form>
+//     return <form onSubmit={handleSubmit}>
+//         <input type="text" name="firstname" defaultValue="John Doe" />
+//         <input type="checkbox" value={checked} onChange={handleChecked} />
+//         <button disabled={!checked}>Envoyer</button>
+//     </form>
 
   //* EXEMPLE 1 : 
 //   const [count, setCount] = useState(0);
